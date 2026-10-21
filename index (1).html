@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a56">
+<title>Jom Quote Now | Takaful Quotation</title>
+<style>
+:root{--navy:#102a56;--blue:#2459a9;--pale:#eaf1fb;--text:#182943;--muted:#64748b;--line:#e0e7f0;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#f2f5fa;line-height:1.5}
+header{color:#fff;background:linear-gradient(115deg,#0a1d3b,#17477e);padding:22px 20px 25px}
+.container{width:min(100% - 32px,960px);margin:auto}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border:1px solid #9dbbe8;border-radius:14px;display:grid;place-items:center;font-size:25px;background:#ffffff15}
+.brand h1{font-size:23px;line-height:1.2;margin:0;letter-spacing:.3px}
+.brand p{font-size:12px;color:#d5e4fa;margin:3px 0 0}
+.nav{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.nav button,.back-btn{color:#fff;background:transparent;text-decoration:none;padding:9px 13px;border-radius:9px;border:1px solid #ffffff45;font-size:13px;cursor:pointer}
+.nav button:hover,.nav button.active{background:#ffffff20}
+main{padding:26px 0 45px}
+.hero{padding:30px;border-radius:21px;background:linear-gradient(135deg,#fff,#e6f1ff);border:1px solid #e1e9f4;box-shadow:0 10px 35px #142d5010}
+.eyebrow{display:inline-block;background:#dceaff;color:#204f91;padding:6px 11px;border-radius:20px;font-size:10px;font-weight:bold;letter-spacing:.7px}
+.hero h2{margin:15px 0 10px;max-width:650px;font-size:clamp(29px,5vw,42px);line-height:1.15;color:var(--navy)}
+.hero h2 span{color:#e32945}
+.hero p{color:var(--muted);max-width:610px;margin:0}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{background:#fff;border:1px solid #e8edf4;border-radius:12px;padding:9px 11px;font-size:11px;font-weight:bold;box-shadow:0 3px 10px #142d5008}
+.section{margin-top:24px}
+.section-heading{margin:0 0 13px}
+.section-heading h2{font-size:21px;color:var(--navy);margin:0 0 3px}
+.section-heading p{font-size:13px;color:var(--muted);margin:0}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.product{width:100%;text-align:left;background:#fff;padding:20px;border-radius:16px;border:1px solid var(--line);box-shadow:0 5px 18px #142d5008;cursor:pointer;color:inherit;transition:transform .15s,border-color .15s}
+.product:hover{transform:translateY(-2px);border-color:#a9c2e8}
+.product-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.product-icon{font-size:29px}
+.arrow{font-size:20px;color:var(--navy)}
+.product h3{margin:8px 0 4px;color:var(--navy);font-size:17px}
+.product p{color:var(--muted);font-size:12px;margin:0 0 16px;min-height:35px}
+.status{display:inline-block;background:#edf2f8;color:#52647c;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:bold}
+.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:21px;margin-top:22px}
+.panel h2{color:var(--navy);font-size:19px;margin:0 0 6px}
+.panel p{color:var(--muted);font-size:13px;margin:0}
+.notice{padding:12px;border-radius:10px;background:#fff7e6;color:#77541b;font-size:12px;border:1px solid #f0dfb8;margin-top:13px}
+footer{text-align:center;padding:22px 15px 30px;font-size:11px;color:var(--muted)}
+footer p{margin:4px 0}
+.hidden{display:none!important}
+.quote-top{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+.back-btn{color:var(--navy);border-color:#d8e1ed;background:#fff;font-weight:bold;padding:9px 12px}
+.quote-title h2{font-size:17px;margin:0;color:var(--navy)}
+.quote-title p{font-size:11px;color:var(--muted);margin:0}
+.quote-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.9fr);gap:15px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:20px;box-shadow:0 5px 18px #142d5008}
+.card-heading{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.card-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:12px;background:#f0f5fc;font-size:20px}
+.card-heading h3{margin:0;color:var(--navy);font-size:14px}
+.card-heading p{margin:2px 0 0;color:var(--muted);font-size:11px}
+label{display:block;font-size:10px;font-weight:bold;letter-spacing:.4px;color:#526078;margin-bottom:6px}
+input,select{width:100%;height:44px;border:1px solid #d4deea;border-radius:11px;background:#fff;padding:0 12px;font:14px Arial;color:var(--text);outline:none}
+input:focus,select:focus{border-color:#5a8ed6;box-shadow:0 0 0 3px #2459a915}
+.field{margin-bottom:13px}
+.two-fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.benefit-row{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #e8edf4;font-size:11px}
+.benefit-row:last-of-type{border-bottom:0}
+.benefit-row strong{text-align:right;color:var(--navy);font-size:11px;max-width:54%}
+.disclaimer{font-size:10px;color:var(--muted);margin:15px 0 0}
+.quote-note{font-size:12px;color:var(--muted);margin-top:13px}
+@media(max-width:650px){.container{width:min(100% - 24px,960px)}header{padding:18px 12px 20px}.brand h1{font-size:20px}.hero{padding:23px 20px}.products{grid-template-columns:1fr}.product{padding:18px}.quote-grid{grid-template-columns:1fr}.two-fields{grid-template-columns:1fr 1fr}.card{padding:17px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">✦</div>
+      <div><h1>JOM QUOTE NOW</h1><p>Takaful Quotation Made Simple</p></div>
+    </div>
+    <nav class="nav" aria-label="Menu utama">
+      <button id="navProducts" class="active" type="button" onclick="showHome()">Produk</button>
+      <button type="button" onclick="showProductsAndScroll()">Buat Quotation</button>
+      <button type="button" onclick="showAbout()">Tentang Kami</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section id="homeView">
+    <section class="hero">
+      <span class="eyebrow">✦ TAKAFUL QUOTATION PLATFORM</span>
+      <h2>Protect what matters.<br><span>Quote it with confidence.</span></h2>
+      <p>Platform untuk membantu ejen menyediakan anggaran quotation takaful dengan lebih mudah, tersusun dan profesional.</p>
+      <div class="pills"><span class="pill">✓ Fast &amp; simple</span><span class="pill">✓ Indicative quote</span><span class="pill">✓ Ready to share</span></div>
+    </section>
+
+    <section class="section" id="produk">
+      <div class="section-heading"><h2>Pilih Produk</h2><p>Pilih kategori untuk memulakan penyediaan quotation.</p></div>
+      <div class="products">
+        <button class="product" type="button" onclick="openQuote('Medical Card')">
+          <div class="product-top"><span class="product-icon">🏥</span><span class="arrow">→</span></div>
+          <h3>Medical Card</h3><p>Perlindungan perubatan dan manfaat berkaitan.</p><span class="status">Quick quote</span>
+        </button>
+        <button class="product" type="button" onclick="openQuote('Ladies Protection')">
+          <div class="product-top"><span class="product-icon">🌷</span><span class="arrow">→</span></div>
+          <h3>Ladies Protection</h3><p>Kategori perlindungan khusus wanita.</p><span class="status">Quick quote</span>
+        </button>
+        <button class="product" type="button" onclick="openQuote('Life Protection')">
+          <div class="product-top"><span class="product-icon">🛡️</span><span class="arrow">→</span></div>
+          <h3>Life Protection</h3><p>Kategori perlindungan hayat.</p><span class="status">Akan datang</span>
+        </button>
+        <button class="product" type="button" onclick="openQuote('Critical Illness')">
+          <div class="product-top"><span class="product-icon">💙</span><span class="arrow">→</span></div>
+          <h3>Critical Illness</h3><p>Kategori perlindungan penyakit kritikal.</p><span class="status">Akan datang</span>
+        </button>
+      </div>
+    </section>
+    <section class="panel" id="aboutPanel"><h2>Tentang Jom Quote Now</h2><p>Alat bantuan quotation untuk kegunaan ejen. Bukan portal rasmi PruBSN dan bukan pengganti ilustrasi atau quotation rasmi.</p></section>
+  </section>
+
+  <section id="quoteView" class="hidden">
+    <div class="quote-top">
+      <button class="back-btn" type="button" onclick="showHome()">← Produk</button>
+      <div class="quote-title"><h2 id="quoteProductTitle">Medical Card</h2><p>Quick Quote</p></div>
+    </div>
+    <div class="quote-grid">
+      <section class="card">
+        <div class="card-heading"><div class="card-icon">🛡️</div><div><h3>Prospect Details</h3><p>Fill in the details below to get an instant quotation.</p></div></div>
+        <form id="prospectForm" onsubmit="submitProspect(event)">
+          <div class="field"><label for="prospectName">NAME</label><input id="prospectName" name="prospectName" type="text" placeholder="Prospect name" required></div>
+          <div class="two-fields">
+            <div class="field"><label for="dob">DATE OF BIRTH</label><input id="dob" name="dob" type="date" required></div>
+            <div class="field"><label for="gender">GENDER</label><select id="gender" name="gender" required><option value="Male">Male</option><option value="Female">Female</option></select></div>
+          </div>
+          <div class="field"><label for="smoking">SMOKING STATUS</label><select id="smoking" name="smoking" required><option value="Non-Smoker">Non-Smoker</option><option value="Smoker">Smoker</option></select></div>
+          <p class="quote-note">Maklumat ini digunakan untuk menyediakan maklumat awal prospek. Kadar caruman belum dikira kerana jadual kadar rasmi belum dimasukkan.</p>
+        </form>
+      </section>
+      <aside class="card">
+        <h3 style="font-size:14px;color:var(--navy);margin:0 0 10px">Plan Benefits</h3>
+        <div class="benefit-row"><span>Medical Treatment Benefits</span><strong>RM200,000 annually<br>Unlimited Lifetime</strong></div>
+        <div class="benefit-row"><span>Hospital Daily Room &amp; Board</span><strong>RM200 / day</strong></div>
+        <div class="benefit-row"><span>Heart Attack, Cancer &amp; Kidney Benefits</span><strong>RM1,000,000</strong></div>
+        <div class="benefit-row"><span>Heart Attack, Cancer &amp; Kidney Treatment Allowance</span><strong>RM100 / day</strong></div>
+        <div class="benefit-row"><span>Death Benefit</span><strong>RM10,000</strong></div>
+        <div class="benefit-row"><span>Extended Care Benefits</span><strong>Vaccination reimbursement + RM100/day hospital allowance</strong></div>
+        <div class="benefit-row"><span>Outpatient Treatment Coverage</span><strong>Pre/Post Hospitalisation, Day Care/Surgery, Ambulance, Chemotherapy, Radiotherapy, Physiotherapy, etc.</strong></div>
+        <p class="disclaimer">Indicative contribution only. Final contribution is subject to eligibility, underwriting, certificate terms and conditions, and the applicable official quotation.</p>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer><p>Jom Quote Now · Takaful Quotation Platform</p><p>Semua anggaran tertakluk pada pengesahan rasmi pengendali takaful.</p></footer>
+<script>
+function showHome(){
+ document.getElementById('homeView').classList.remove('hidden');
+ document.getElementById('quoteView').classList.add('hidden');
+ document.getElementById('navProducts').classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function openQuote(product){
+ if(product==='Life Protection'||product==='Critical Illness'){
+   alert(product+' akan datang. Buat masa ini, borang quick quote sedang disediakan untuk Medical Card dan Ladies Protection.');
+   return;
+ }
+ document.getElementById('homeView').classList.add('hidden');
+ document.getElementById('quoteView').classList.remove('hidden');
+ document.getElementById('quoteProductTitle').textContent=product;
+ document.getElementById('navProducts').classList.remove('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function showProductsAndScroll(){showHome();setTimeout(()=>document.getElementById('produk').scrollIntoView({behavior:'smooth'}),50)}
+function showAbout(){showHome();setTimeout(()=>document.getElementById('aboutPanel').scrollIntoView({behavior:'smooth'}),50)}
+function submitProspect(event){event.preventDefault();alert('Maklumat prospek telah diisi. Pengiraan caruman belum diaktifkan kerana jadual kadar rasmi belum dimasukkan.')}
+</script>
+</body>
+</html>
